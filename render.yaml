@@ -1,0 +1,16 @@
+# render.yml
+
+version: '2.0'
+services:
+  web:
+    image: node:12
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: mongodb://<username>:<password>@<host>:<port>/<database>
+    volumes:
+      - ./:/app
+    restart: always
